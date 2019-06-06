@@ -33,13 +33,13 @@ class Notes{
 		let textAreaValue = document.getElementById("textarea__note--js");
 		
 
-
-
 		let buttonCancel = document.createElement("button");
 			buttonCancel.textContent = "Cancel";
 			buttonCancel.setAttribute("class", "cancel");
 			buttonCancel.setAttribute("id", "cancel--js");
 
+
+		
 		buttonCancel.addEventListener("click",(e)=>{
 			this.removeBanner(containerText,textArea);
 		}, false);
@@ -49,23 +49,18 @@ class Notes{
 			if(textAreaValue.value != ""){
 				let paragraph = document.createElement("p");
  					paragraph.textContent = textAreaValue.value; 
- 					paragraph.setAttribute("class", "paragraph")
- 				let spanFavorite = document.createElement("span");
- 					spanFavorite.textContent = "*     ";
+ 					paragraph.setAttribute("class", "paragraph");
 
- 			 
-
- 					paragraph.insertAdjacentElement("afterbegin", spanFavorite)
- 					 
-				document.getElementById("all_note_container--js").appendChild(paragraph);
-
+			document.getElementById("all_note_container--js").appendChild(paragraph);
 			}
 			this.removeBanner(containerText,textArea);
 
 
 		}, false);
 
-		containerText.appendChild(buttonCancel);
+		boxButtons.appendChild(buttonAdd)
+		boxButtons.appendChild(buttonCancel);
+
 	}
  
 	removeBanner(place, textA){
