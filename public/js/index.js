@@ -10,26 +10,79 @@ class Notes{
 
 			textArea.setAttribute("class", "textarea__note");	 
 			textArea.setAttribute("id", "textarea__note--js");	 
-			textArea.setAttribute("cols", "38");	 
+			textArea.setAttribute("cols", "39");	 
 			textArea.setAttribute("rows", "8");	 
 			textArea.setAttribute("placeholder", "Write your note");	 
 
-			document.body.insertAdjacentElement("beforebegin", containerText);
+		document.body.insertAdjacentElement("beforebegin", containerText);
+		containerText.insertAdjacentElement("beforebegin", textArea)
 
-		let buttonAdd = document.createElement("");
-			buttonAdd.textContent = "Add note";
-			buttonAdd.setAttribute("class", "addNote");
-			buttonAdd.setAttribute("id", "addNote--js");
+		let boxButtons = document.createElement("div");
+			boxButtons.setAttribute("class", "box__content")
+			boxButtons.setAttribute("id", "box__content--js")
+	 
+		containerText.appendChild(boxButtons);
+
+		let buttonAdd = document.createElement("button");
+			buttonAdd.textContent = "Add";
+			buttonAdd.setAttribute("class", "add");
+			buttonAdd.setAttribute("id", "add--js");
+ 
+
+		containerText.appendChild(buttonAdd);
+		let textAreaValue = document.getElementById("textarea__note--js");
+		
+
+
+
+		let buttonCancel = document.createElement("button");
+			buttonCancel.textContent = "Cancel";
+			buttonCancel.setAttribute("class", "cancel");
+			buttonCancel.setAttribute("id", "cancel--js");
+
+		buttonCancel.addEventListener("click", (e) =>{
+			this.removeBanner(containerText,textArea);
+		}, false);
+
+		buttonAdd.addEventListener("click", (e) =>{
 			
-			containerText.insertAdjacentElement("beforebegin", textArea)
+			if(textAreaValue.value != ""){
+				let paragraph = document.createElement("p");
+ 					paragraph.textContent = textAreaValue.value; 
+				document.getElementById("all_note_container--js").appendChild(paragraph);
+			}
+			this.removeBanner(containerText,textArea);
+
+
+		}, false);
+
+		containerText.appendChild(buttonCancel);
 	}
-	removeNotes(){}
+ 
+	removeBanner(place, textA){
+		place.remove();
+		textA.remove();
+	}
+	 
 
 }
+
+
+
+
+
+
+
+
 let buttonSend = document.getElementById("add__note--js");
 
-buttonSend.addEventListener("click", (e)=>{
+let all_note = document.getElementById("all_note_container--js");
+
+let iterator = 1;
 	let classNotesInstance = new Notes();
+buttonSend.addEventListener("click", (e)=>{
+	if(iterator ==1){
 		classNotesInstance.addNote();
+	}
 }, false)
 
