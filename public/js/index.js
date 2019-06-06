@@ -50,6 +50,11 @@ class Notes{
 				let paragraph = document.createElement("p");
  					paragraph.textContent = textAreaValue.value; 
  					paragraph.setAttribute("class", "paragraph");
+ 					paragraph.setAttribute("id", "paragraph--js");
+
+ 				paragraph.addEventListener("click", (e)=>{
+ 					paragraph.classList.toggle("translate");
+ 				}, false)
 
 			document.getElementById("all_note_container--js").appendChild(paragraph);
 			}
@@ -83,10 +88,14 @@ let buttonSend = document.getElementById("add__note--js");
 let all_note = document.getElementById("all_note_container--js");
 
 let iterator = 1;
-	let classNotesInstance = new Notes();
+let classNotesInstance = new Notes();
+
 buttonSend.addEventListener("click", (e)=>{
 	if(iterator ==1){
 		classNotesInstance.addNote();
 	}
 }, false)
 
+
+
+	
