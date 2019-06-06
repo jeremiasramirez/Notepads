@@ -1,10 +1,24 @@
 .containerText{
 	background-color: #eee; 
+	position: fixed;
 	height: 100vh;
+	width: 100vh;
 }
 .textarea__note{
 	text-align: center;
 }
 
+
+.spanClose{
+
+}
+.paragraph{
+	 word-break: break-all;
+	 background: #222;
+	 color: #ddd;
+	 padding: .3em;
+	 border-radius: 4px;
+	 margin-top: 4px;
+}
 
 

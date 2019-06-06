@@ -40,7 +40,7 @@ class Notes{
 			buttonCancel.setAttribute("class", "cancel");
 			buttonCancel.setAttribute("id", "cancel--js");
 
-		buttonCancel.addEventListener("click", (e) =>{
+		buttonCancel.addEventListener("click",(e)=>{
 			this.removeBanner(containerText,textArea);
 		}, false);
 
@@ -49,7 +49,16 @@ class Notes{
 			if(textAreaValue.value != ""){
 				let paragraph = document.createElement("p");
  					paragraph.textContent = textAreaValue.value; 
+ 					paragraph.setAttribute("class", "paragraph")
+ 				let spanFavorite = document.createElement("span");
+ 					spanFavorite.textContent = "*     ";
+
+ 			 
+
+ 					paragraph.insertAdjacentElement("afterbegin", spanFavorite)
+ 					 
 				document.getElementById("all_note_container--js").appendChild(paragraph);
+
 			}
 			this.removeBanner(containerText,textArea);
 
