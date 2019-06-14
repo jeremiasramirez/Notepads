@@ -26,6 +26,7 @@ body{
 	font-size: 20px;
 	color: #ddd;
 	font-family: sans-serif;
+	cursor: pointer;
 }
 .add__note:hover{
 	background-color: purple;
@@ -39,9 +40,11 @@ body{
 	display: inline-block;
 	font-family: sans-serif;
 	margin-bottom: .3em;
+	color: blue;
 }
 .note__favorite{
 	font-family: sans-serif;
+	color: blue;
 }
 .paragraph{
 	 word-break: break-all;
@@ -56,6 +59,7 @@ body{
 	 word-spacing: 1.4px;
 	 line-height: 22px;
 	 transition: .5s;
+	 cursor: pointer;
 }
 
 .translate{
@@ -75,7 +79,7 @@ height: 100vh;
 	width: 100%;
 	text-align: center;
 	font-family: arial;
-	 border-radius: 4px;
+	border-radius: 4px;
 	color: white;
 	font-weight: 600;
 	border: 0;
