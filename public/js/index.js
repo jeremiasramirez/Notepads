@@ -2,7 +2,9 @@ document.getElementById("add__note--js");
 class Notes{
  
 	addNote(){
-
+		
+		 
+		document.getElementsByTagName("html")[0].style.overflow = "hidden";
 		let containerText = document.createElement("div");
 			containerText.setAttribute("class", "containerText");
 			containerText.setAttribute("id", "containerText");
@@ -60,7 +62,7 @@ class Notes{
 			}
 			this.removeBanner(containerText,textArea);
 
-
+			
 		}, false);
 
 		boxButtons.appendChild(buttonAdd)
