@@ -10,8 +10,8 @@ class Notes{
 
 			textArea.setAttribute("class", "textarea__note");	 
 			textArea.setAttribute("id", "textarea__note--js");	 
-			textArea.setAttribute("cols", "39");	 
-			textArea.setAttribute("rows", "8");	 
+			textArea.setAttribute("cols", "3");	 
+			textArea.setAttribute("rows", "5");	 
 			textArea.setAttribute("placeholder", "Write your note");	 
 
 		document.body.insertAdjacentElement("beforebegin", containerText);
