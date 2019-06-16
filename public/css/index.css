@@ -118,6 +118,7 @@ body{
 	 line-height: 22px;
 	 transition: .5s;
 	 cursor: pointer;
+	 white-space: pre-wrap;
 }
 
 .blue{
