@@ -48,16 +48,16 @@ class Notes{
 
 
 			let cancelNote = document.createElement("p");
-			cancelNote.setAttribute("class", "cancelNote fas fa-undo");
-			cancelNote.setAttribute("id", "cancelNote--js");
-			cancelNote.title = "Cancelar";
-			menu.appendChild(cancelNote);
+				cancelNote.setAttribute("class", "cancelNote fas fa-undo");
+				cancelNote.setAttribute("id", "cancelNote--js");
+				cancelNote.title = "Cancelar";
+				menu.appendChild(cancelNote);
 				
 			cancelNote.addEventListener("click", (e)=>{
 
 				this.removeBanner(menu);
 				this.removeEfectToParagraph(element);
-				this.windowEditNote(element);
+			 
 
 			}, false);	
 
@@ -186,6 +186,7 @@ class Notes{
 				textEdit.setAttribute("id", "textEdit--js")
 				textEdit.setAttribute("rows", 8);
 				menuEdit.appendChild(textEdit)
+				textEdit.innerHTML = element.innerHTML;
 
 			let addEdit = document.createElement("div");
 				addEdit.setAttribute("class", "box__content");
@@ -195,17 +196,26 @@ class Notes{
 
 			let editAdd = document.createElement("button");
 				editAdd.setAttribute("class", "add__note");
-				editAdd.setAttribute("id", "");
+				editAdd.setAttribute("id", "editAdd--js");
 				editAdd.textContent = "Edit"
 				addEdit.appendChild(editAdd);
 
+				editAdd.addEventListener("click", (e)=>{
+
+					let vals = textEdit.value;
+					element.innerHTML = vals;
+				},false)
+
 			let editCancel = document.createElement("button");
 				editCancel.setAttribute("class", "cancel");
-				editCancel.setAttribute("id", "");
+				editCancel.setAttribute("id", "editCancel--js");
 				editCancel.textContent = "Cancel"
 				addEdit.appendChild(editCancel);
 
-
+				editCancel.addEventListener("click", (e)=>{
+					this.removeBanner(menuEdit);
+				}, false);
+				
 	}
 	 
 
