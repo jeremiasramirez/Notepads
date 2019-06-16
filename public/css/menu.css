@@ -3,7 +3,7 @@ body{
 	padding: 0;
 }
 .menu{
-	background-color: rgba(0%, 0%, 0%, 70%);
+	background-color: rgba(0%, 0%, 0%, 88%);
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -17,15 +17,41 @@ body{
 	padding:0;
 }
 .favorite{
-	 
-	/*display: inline-block;*/
-	 
-}.delete{
- 
-	/*display: inline-block;*/
-	 
-}.cancelNote{
-	 
-	/*display: inline-block;*/
-	 
+ 	font-size: 40px;
+ 	color: yellow;
+ 	transition: .3s;
+}
+.favorite:hover{
+	transform: scale(.9);
+	transition: .5s;
+	opacity: .6;
+	cursor: pointer;
+}
+.delete{
+ 	font-size: 40px;
+ 	color: red;
+ 	transition: .3s;
+}
+.delete:hover{
+	transform: scale(.9);
+	transition: .5s;
+	opacity: .6;
+	cursor: pointer;
+}
+.cancelNote{
+	font-size: 40px;
+ 	color: red; 
+ 	transition: .3s;	 
+}
+.cancelNote:hover{
+	cursor: pointer;
+	transform: scale(.9);
+	transition: .5s;
+	opacity: .6;
+}
+
+.efect{
+	transform: rotate(20deg) translateX(50px) translateY(-150px);
+	transition: 1s;
+	opacity: .4;
 }

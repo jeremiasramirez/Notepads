@@ -1,9 +1,9 @@
 document.getElementById("add__note--js");
 class Notes{
 
- 	createMenu(element){
-		let favNotes = document.getElementById("note__favorite--js");
 
+ 	createMenu(element){
+		var favNotes = document.getElementById("note__favorite--js");
 
 		let menu = document.createElement("div");
 			menu.setAttribute("class","menu");
@@ -15,32 +15,47 @@ class Notes{
 			favorite.setAttribute("class", "favorite fas fa-star");
 			favorite.setAttribute("id", "favorite--js");
 			favorite.title = "Favorito";
-			favorite.textContent = "F";
 			menu.insertAdjacentElement("afterbegin", favorite);
-
+			 	
+			 favorite.addEventListener("click", (e)=>{
+				 this.pushFavorite(favNotes, element, menu);
+			 }, false);
+				 
 
 		let deleteNote = document.createElement("p");
 			deleteNote.setAttribute("class", "delete fas fa-trash-alt");
 			deleteNote.setAttribute("id", "deleteNote--js");
 			deleteNote.title = "Eliminar";
-			deleteNote.textContent = "D";
 			menu.appendChild(deleteNote);
 
+			deleteNote.addEventListener("click", (e)=>{
+				this.removeNote(element, menu);
+			}, false);
+
 		let cancelNote = document.createElement("p");
-			cancelNote.setAttribute("class", "cancelNote fas fa-ban");
+			cancelNote.setAttribute("class", "cancelNote fas fa-undo");
 			cancelNote.setAttribute("id", "cancelNote--js");
 			cancelNote.title = "Cancelar";
-			cancelNote.textContent = "X";
 			menu.appendChild(cancelNote);
 				
-
-
-
-		
-			 
+			cancelNote.addEventListener("click", (e)=>{
+				this.removeBanner(menu);
+				this.removeEfectToParagraph(element)
+			}, false);	
+		 
 
 	}	
+	pushFavorite(favNotes, element, menu){
+		element.classList.add("efect")
+		favNotes.appendChild(element);
+		this.removeEfectToParagraph(element);
+		this.removeBanner(menu);
+		
+		setTimeout(()=>{
+		 	element.classList.remove("efect")
+	     }, 1000)
 
+	}
 	addNote(){
 		
 		 
@@ -115,10 +130,23 @@ class Notes{
 		boxButtons.appendChild(buttonCancel);
 
 	}
- 
+	removeEfectToParagraph(element){
+		element.classList.remove("translate");
+	}
+
+ 	removeNote(elementToDelete, menu){
+		elementToDelete.remove();	
+		this.removeBanner(menu);
+	}
+
 	removeBanner(place, textA){
-		place.remove();
-		textA.remove();
+		if(place){
+			place.remove();
+		}
+		if(textA){
+			textA.remove();
+		}
+		
 	}
 	
 	 
