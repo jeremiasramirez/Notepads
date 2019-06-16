@@ -204,6 +204,7 @@ class Notes{
 
 					let vals = textEdit.value;
 					element.innerHTML = vals;
+					this.removeBanner(menuEdit);
 				},false)
 
 			let editCancel = document.createElement("button");
