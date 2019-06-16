@@ -4,7 +4,7 @@ class Notes{
 
  	createMenu(element){
 		var favNotes = document.getElementById("note__favorite--js");
-
+		if(!document.getElementById("menu--js")){
 		let menu = document.createElement("div");
 			menu.setAttribute("class","menu");
 			menu.setAttribute("id","menu--js");
@@ -60,7 +60,7 @@ class Notes{
 			 
 
 			}, false);	
-
+		}
 	}	
 
 
@@ -78,12 +78,11 @@ class Notes{
 
 	}
 	addNote(){
-		
-		 
-		document.getElementsByTagName("html")[0].style.overflow = "hidden";
+		if(!document.getElementById("containerText") && !document.getElementById("menu--js")){
 		let containerText = document.createElement("div");
 			containerText.setAttribute("class", "containerText");
 			containerText.setAttribute("id", "containerText");
+			containerText.style.overflow = 'hidden'
 		let textArea = document.createElement("textarea");
 
 			textArea.setAttribute("class", "textarea__note");	 
@@ -127,19 +126,23 @@ class Notes{
 		buttonAdd.addEventListener("click", (e) =>{
 			
 			if(textAreaValue.value != ""){
+				
 				let paragraph = document.createElement("p");
  					paragraph.textContent = textAreaValue.value; 
  					paragraph.setAttribute("class", "paragraph");
  					paragraph.setAttribute("id", "paragraph--js");
 
  				paragraph.addEventListener("click", (e)=>{
+ 					if (!document.getElementById("containerText") && !document.getElementById("menu--js")){
  					paragraph.classList.toggle("translate");
  					
  					// validating if does not exist menu
  					if(!document.getElementById("menu--js")){
  						this.createMenu(paragraph);
+ 						}
  					}
  				}, false)
+
 
 			document.getElementById("all_note_container--js").appendChild(paragraph);
 			}
@@ -149,7 +152,7 @@ class Notes{
 
 		boxButtons.appendChild(buttonAdd)
 		boxButtons.appendChild(buttonCancel);
-
+	 }
 	}
 	removeEfectToParagraph(element){
 		element.classList.remove("translate");
@@ -158,6 +161,7 @@ class Notes{
  	removeNote(elementToDelete, menu){
 		elementToDelete.remove();	
 		this.removeBanner(menu);
+
 	}
 
 	removeBanner(place, textA){
@@ -184,7 +188,7 @@ class Notes{
 				textEdit.setAttribute("cols", 38)
 				textEdit.setAttribute("class", "textEdit textarea__note")
 				textEdit.setAttribute("id", "textEdit--js")
-				textEdit.setAttribute("rows", 8);
+				textEdit.setAttribute("rows", 6);
 				menuEdit.appendChild(textEdit)
 				textEdit.innerHTML = element.innerHTML;
 
@@ -195,7 +199,7 @@ class Notes{
 
 
 			let editAdd = document.createElement("button");
-				editAdd.setAttribute("class", "add__note");
+				editAdd.setAttribute("class", "add__note Add--feature");
 				editAdd.setAttribute("id", "editAdd--js");
 				editAdd.textContent = "Edit"
 				addEdit.appendChild(editAdd);
@@ -241,7 +245,13 @@ buttonSend.addEventListener("click", (e)=>{
 		classNotesInstance.addNote();
 	}
 }, false)
-
-
+// let x = document.getElementById("menu--js");
+// let y = document.getElementById("containerText");
+// if(x){
+// 	x.style.overflow = "hidden";
+// }
+// if(y){
+// 	y.style.overflow = "hidden";
+// }
 
  
