@@ -1,6 +1,46 @@
 document.getElementById("add__note--js");
 class Notes{
- 
+
+ 	createMenu(element){
+		let favNotes = document.getElementById("note__favorite--js");
+
+
+		let menu = document.createElement("div");
+			menu.setAttribute("class","menu");
+			menu.setAttribute("id","menu--js");
+			menu.title = "Menu";
+			document.body.insertAdjacentElement("afterbegin", menu);
+
+		let favorite = document.createElement("p");
+			favorite.setAttribute("class", "favorite fas fa-star");
+			favorite.setAttribute("id", "favorite--js");
+			favorite.title = "Favorito";
+			favorite.textContent = "F";
+			menu.insertAdjacentElement("afterbegin", favorite);
+
+
+		let deleteNote = document.createElement("p");
+			deleteNote.setAttribute("class", "delete fas fa-trash-alt");
+			deleteNote.setAttribute("id", "deleteNote--js");
+			deleteNote.title = "Eliminar";
+			deleteNote.textContent = "D";
+			menu.appendChild(deleteNote);
+
+		let cancelNote = document.createElement("p");
+			cancelNote.setAttribute("class", "cancelNote fas fa-ban");
+			cancelNote.setAttribute("id", "cancelNote--js");
+			cancelNote.title = "Cancelar";
+			cancelNote.textContent = "X";
+			menu.appendChild(cancelNote);
+				
+
+
+
+		
+			 
+
+	}	
+
 	addNote(){
 		
 		 
@@ -27,6 +67,7 @@ class Notes{
 
 		let buttonAdd = document.createElement("button");
 			buttonAdd.textContent = "Add";
+			buttonAdd.title ="Agregar nota"
 			buttonAdd.setAttribute("class", "add");
 			buttonAdd.setAttribute("id", "add--js");
  
@@ -39,6 +80,7 @@ class Notes{
 			buttonCancel.textContent = "Cancel";
 			buttonCancel.setAttribute("class", "cancel");
 			buttonCancel.setAttribute("id", "cancel--js");
+			buttonCancel.title = "Cancelar";
 
 
 		
@@ -56,13 +98,17 @@ class Notes{
 
  				paragraph.addEventListener("click", (e)=>{
  					paragraph.classList.toggle("translate");
+ 					
+ 					// validating if does not exist menu
+ 					if(!document.getElementById("menu--js")){
+ 						this.createMenu(paragraph);
+ 					}
  				}, false)
 
 			document.getElementById("all_note_container--js").appendChild(paragraph);
 			}
-			this.removeBanner(containerText,textArea);
 
-			
+			this.removeBanner(containerText,textArea);			
 		}, false);
 
 		boxButtons.appendChild(buttonAdd)
@@ -74,6 +120,7 @@ class Notes{
 		place.remove();
 		textA.remove();
 	}
+	
 	 
 
 }
