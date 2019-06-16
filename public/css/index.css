@@ -14,7 +14,8 @@ body{
 	font-family: arial;
 	font-size: 2em;
 	word-spacing: 1.4px;
-	line-height: 22px;
+	letter-spacing: 1.5px;
+	line-height: 25px;
 	color: #222;
 	transform: scale(.9);
 	border: 0;

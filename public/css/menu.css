@@ -50,6 +50,18 @@ body{
 	opacity: .6;
 }
 
+.editNote{
+	font-size: 40px;
+ 	color: yellow; 
+ 	transition: .3s;
+ 	font-size: 40px;
+}
+.editNote:hover{
+	cursor: pointer;
+	transform: scale(.9);
+	transition: .5s;
+	opacity: .6;
+}
 .efect{
 	transform: rotate(20deg) translateX(50px) translateY(-150px);
 	transition: 1s;

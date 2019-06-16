@@ -1,4 +1,4 @@
-document.getElementById("add__note--js");
+
 class Notes{
 
 
@@ -30,22 +30,43 @@ class Notes{
 
 			deleteNote.addEventListener("click", (e)=>{
 				this.removeNote(element, menu);
+			}, false);	
+
+
+			let edit = document.createElement("p");
+				edit.setAttribute("class", "editNote fas fa-edit");
+				edit.setAttribute("id", "editNote--js");
+				edit.title = "Editar";
+				menu.appendChild(edit);
+				
+			edit.addEventListener("click", (e)=>{
+				 this.removeBanner(menu);
+				 this.removeEfectToParagraph(element)
+				 this.windowEditNote(element);
 			}, false);
 
-		let cancelNote = document.createElement("p");
+
+
+			let cancelNote = document.createElement("p");
 			cancelNote.setAttribute("class", "cancelNote fas fa-undo");
 			cancelNote.setAttribute("id", "cancelNote--js");
 			cancelNote.title = "Cancelar";
 			menu.appendChild(cancelNote);
 				
 			cancelNote.addEventListener("click", (e)=>{
+
 				this.removeBanner(menu);
-				this.removeEfectToParagraph(element)
+				this.removeEfectToParagraph(element);
+				this.windowEditNote(element);
+
 			}, false);	
-		 
 
 	}	
+
+
+
 	pushFavorite(favNotes, element, menu){
+
 		element.classList.add("efect")
 		favNotes.appendChild(element);
 		this.removeEfectToParagraph(element);
@@ -148,7 +169,44 @@ class Notes{
 		}
 		
 	}
+	editNote(){
+
+	}
 	
+	windowEditNote(element){
+		let menuEdit = document.createElement("div");
+			menuEdit.setAttribute("class","menu");
+			menuEdit.setAttribute("id","menuEdit--js");
+			menuEdit.title = "Edicion de notas";
+			document.body.insertAdjacentElement("afterbegin", menuEdit);
+
+			let textEdit = document.createElement("textarea");
+				textEdit.setAttribute("cols", 38)
+				textEdit.setAttribute("class", "textEdit textarea__note")
+				textEdit.setAttribute("id", "textEdit--js")
+				textEdit.setAttribute("rows", 8);
+				menuEdit.appendChild(textEdit)
+
+			let addEdit = document.createElement("div");
+				addEdit.setAttribute("class", "box__content");
+				addEdit.setAttribute("id", "");
+				menuEdit.appendChild(addEdit);
+
+
+			let editAdd = document.createElement("button");
+				editAdd.setAttribute("class", "add__note");
+				editAdd.setAttribute("id", "");
+				editAdd.textContent = "Edit"
+				addEdit.appendChild(editAdd);
+
+			let editCancel = document.createElement("button");
+				editCancel.setAttribute("class", "cancel");
+				editCancel.setAttribute("id", "");
+				editCancel.textContent = "Cancel"
+				addEdit.appendChild(editCancel);
+
+
+	}
 	 
 
 }
@@ -175,4 +233,4 @@ buttonSend.addEventListener("click", (e)=>{
 
 
 
-	
+ 
