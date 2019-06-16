@@ -1,0 +1,31 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.menu{
+	background-color: rgba(0%, 0%, 0%, 70%);
+	color: white;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	z-index: 10000;
+	margin: 0;
+	padding:0;
+}
+.favorite{
+	 
+	/*display: inline-block;*/
+	 
+}.delete{
+ 
+	/*display: inline-block;*/
+	 
+}.cancelNote{
+	 
+	/*display: inline-block;*/
+	 
+}
