@@ -126,7 +126,7 @@ body{
 	background: blue;
 }
 .translate{
-	transform: scale(.9) translateX(-100px);
+	transform:translateX(-100px);
 	transition: .8s;
 	opacity: .6;
 }
