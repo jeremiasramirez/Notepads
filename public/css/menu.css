@@ -64,7 +64,21 @@ body{
 	opacity: .6;
 }
 .efect{
-	transform: rotate(20deg) translateX(50px) translateY(-150px);
+	transform: rotate(20deg) translateX(50px) translateY(-50px);
 	transition: 1s;
 	opacity: .4;
+	animation: efect 2s linear
+}
+@keyframes efect{
+	10%{
+		background-color: black;
+	}30%{
+		background-color: red;
+	}50%{
+		background-color: black;
+	}80%{
+		background-color: gold;
+	}100%{
+		background-color: green;
+	}
 }

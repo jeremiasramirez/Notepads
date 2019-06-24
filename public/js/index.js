@@ -79,7 +79,7 @@ class Notes{
 	}
 	 
 	addNote(){
-		if(!document.getElementById("containerText") && !document.getElementById("menu--js")){
+		if(!document.getElementById("containerText") && !document.getElementById("menu--js") && !document.getElementById("menuEdit--js")){
 			 document.getElementById("add__note--js").style.overflow = 'hidden'	
 		let containerText = document.createElement("div");
 			containerText.setAttribute("class", "containerText");
