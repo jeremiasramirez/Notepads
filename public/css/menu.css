@@ -19,7 +19,7 @@ body{
 	overflow-y: scroll;
 }
 .favorite{
- 	font-size: 40px;
+ 	font-size: 35px;
  	color: yellow;
  	transition: .3s;
  	transform: scale(.9);
@@ -31,7 +31,7 @@ body{
 	cursor: pointer;
 }
 .delete{
- 	font-size: 40px;
+ 	font-size: 35px;
  	color: red;
  	transition: .3s;
  	transform: scale(.9);
@@ -43,7 +43,7 @@ body{
 	cursor: pointer;
 }
 .cancelNote{
-	font-size: 40px;
+	font-size: 35px;
  	color: red; 
  	transition: .3s;
  	transform: scale(.9);	 
@@ -57,7 +57,7 @@ body{
 }
 
 .editNote{
-	font-size: 40px;
+	font-size: 35px;
  	color: yellow; 
  	transition: .3s;
  	font-size: 40px;
