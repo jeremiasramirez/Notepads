@@ -4,7 +4,7 @@ body{
 .containerText{
 	/*background-color: #222; */
 	padding: .2em;
- 
+ 	z-index: 1000000000;
 	 
 
 }
@@ -55,7 +55,7 @@ body{
 	position: fixed;
 	bottom:0;
 	right: 0;
-	z-index: 1000;
+	z-index: 10000;
 }
 .add__note:hover{
 	
@@ -102,7 +102,7 @@ body{
 .--feature{
 	position: sticky;
 	top: 0;
-	z-index: 1000000;
+	z-index: 100;
 	background-color: orange;
 	display: inline-block;
 	width: 100%;

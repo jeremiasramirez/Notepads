@@ -71,14 +71,16 @@ class Notes{
 		favNotes.appendChild(element);
 		this.removeEfectToParagraph(element);
 		this.removeBanner(menu);
-		
+	 
 		setTimeout(()=>{
 		 	element.classList.remove("efect")
 	     }, 1000)
 
 	}
+	 
 	addNote(){
 		if(!document.getElementById("containerText") && !document.getElementById("menu--js")){
+			 document.getElementById("add__note--js").style.overflow = 'hidden'	
 		let containerText = document.createElement("div");
 			containerText.setAttribute("class", "containerText");
 			containerText.setAttribute("id", "containerText");
@@ -121,6 +123,7 @@ class Notes{
 		
 		buttonCancel.addEventListener("click",(e)=>{
 			this.removeBanner(containerText,textArea);
+			 
 		}, false);
 
 		buttonAdd.addEventListener("click", (e) =>{
@@ -147,7 +150,8 @@ class Notes{
 			document.getElementById("all_note_container--js").appendChild(paragraph);
 			}
 
-			this.removeBanner(containerText,textArea);			
+			this.removeBanner(containerText,textArea);		
+
 		}, false);
 
 		boxButtons.appendChild(buttonAdd)
@@ -156,20 +160,24 @@ class Notes{
 	}
 	removeEfectToParagraph(element){
 		element.classList.remove("translate");
+		 
 	}
 
  	removeNote(elementToDelete, menu){
 		elementToDelete.remove();	
 		this.removeBanner(menu);
+		 
 
 	}
 
 	removeBanner(place, textA){
 		if(place){
 			place.remove();
+		 
 		}
 		if(textA){
 			textA.remove();
+			 
 		}
 		
 	}
@@ -209,6 +217,7 @@ class Notes{
 					let vals = textEdit.value;
 					element.innerHTML = vals;
 					this.removeBanner(menuEdit);
+				 
 				},false)
 
 			let editCancel = document.createElement("button");
@@ -219,6 +228,7 @@ class Notes{
 
 				editCancel.addEventListener("click", (e)=>{
 					this.removeBanner(menuEdit);
+					 
 				}, false);
 				
 	}
