@@ -214,7 +214,11 @@ class Notes{
 		element.classList.remove("translate");
 		 
 	}
-
+	scrollZero(){
+		if( (window.scrollY > 0) == true){
+			window.scrollTo(0, 0);
+		}
+	}
  	removeNote(elementToDelete, menu){
 		elementToDelete.remove();	
 		this.removeBanner(menu);
@@ -307,6 +311,7 @@ let classNotesInstance = new Notes();
 buttonSend.addEventListener("click", (e)=>{
 	if(iterator ==1){
 		classNotesInstance.addNote();
+		classNotesInstance.scrollZero();
 	}
 }, false)
 // let x = document.getElementById("menu--js");
