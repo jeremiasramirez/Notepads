@@ -113,7 +113,7 @@ body{
 	 border-radius: 4px;
 	 margin-top: 3px;
 	 margin-bottom: .3em;
-	 margin-left: .3em;
+	 margin-left: .2em;
 	 word-spacing: 1.4px;
 	 line-height: 22px;
 	 transition: .5s;
@@ -126,7 +126,7 @@ body{
 	background: blue;
 }
 .translate{
-	transform: scale(.9);
+	transform: scale(.9) translateX(-100px);
 	transition: .8s;
 	opacity: .6;
 }
