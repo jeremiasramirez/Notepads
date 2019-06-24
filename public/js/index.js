@@ -80,11 +80,11 @@ class Notes{
 	 
 	addNote(){
 		if(!document.getElementById("containerText") && !document.getElementById("menu--js") && !document.getElementById("menuEdit--js")){
-			 document.getElementById("add__note--js").style.overflow = 'hidden'	
+			
 		let containerText = document.createElement("div");
 			containerText.setAttribute("class", "containerText");
 			containerText.setAttribute("id", "containerText");
-			containerText.style.overflow = 'hidden'
+			
 		let textArea = document.createElement("textarea");
 
 			textArea.setAttribute("class", "textarea__note");	 
@@ -94,6 +94,7 @@ class Notes{
 			textArea.setAttribute("placeholder", "Write your note");	 
 
 		document.body.insertAdjacentElement("beforebegin", containerText);
+	 
 		containerText.insertAdjacentElement("beforebegin", textArea)
 
 		let boxButtons = document.createElement("div");
@@ -245,6 +246,7 @@ class Notes{
 
 let buttonSend = document.getElementById("add__note--js");
 
+
 let all_note = document.getElementById("all_note_container--js");
 
 let iterator = 1;
@@ -264,4 +266,12 @@ buttonSend.addEventListener("click", (e)=>{
 // 	y.style.overflow = "hidden";
 // }
 
- 
+let getscrollzero = document.getElementById("title__data--js");
+
+if(getscrollzero){
+	getscrollzero.addEventListener("click", (e)=>{
+		if( (window.scrollY > 0) == true){
+			window.scrollTo(0, 0);
+		}
+	}, false)
+}
