@@ -3,6 +3,7 @@ class Notes{
 
 
  	createMenu(element){
+ 		this.hiddenButtonFloat()
 		var favNotes = document.getElementById("note__favorite--js");
 		if(!document.getElementById("menu--js")){
 		let menu = document.createElement("div");
@@ -29,6 +30,7 @@ class Notes{
 			menu.appendChild(deleteNote);
 
 			deleteNote.addEventListener("click", (e)=>{
+				this.showButtonFloat()
 				this.removeNote(element, menu);
 			}, false);	
 
@@ -40,33 +42,81 @@ class Notes{
 				menu.appendChild(edit);
 				
 			edit.addEventListener("click", (e)=>{
+
 				 this.removeBanner(menu);
 				 this.removeEfectToParagraph(element)
 				 this.windowEditNote(element);
 			}, false);
 
 
+			let showview = document.createElement("p");
+				showview.setAttribute("class", "editNote fas fa-binoculars");
+				showview.setAttribute("id", "showView--js");
+				showview.title = "Visualizar";
+				menu.appendChild(showview);
+
+			showview.addEventListener("click",(e)=>{
+				this.removeBanner(menu);
+				this.removeEfectToParagraph(element);
+				this.showVisualizer(element);
+			})
 
 			let cancelNote = document.createElement("p");
-				cancelNote.setAttribute("class", "cancelNote fas fa-undo");
+				cancelNote.setAttribute("class", "cancelNote fas fa-long-arrow-alt-left size");
 				cancelNote.setAttribute("id", "cancelNote--js");
 				cancelNote.title = "Cancelar";
 				menu.appendChild(cancelNote);
 				
 			cancelNote.addEventListener("click", (e)=>{
-
+				this.showButtonFloat()
 				this.removeBanner(menu);
 				this.removeEfectToParagraph(element);
-			 
+			 	
 
 			}, false);	
 		}
 	}	
+	hiddenButtonFloat(){
+		document.getElementById("add__note--js").classList.add("buttonfloat");
+		
+	}
+	showButtonFloat(){
+		document.getElementById("add__note--js").classList.remove("buttonfloat");
+	}
+	showVisualizer(element){
+		this.hiddenButtonFloat()
+
+		let menuEdit = document.createElement("div");
+			menuEdit.setAttribute("class","menu zoom");
+			menuEdit.setAttribute("id","menuEdit--js");
+			menuEdit.title = "Edicion de notas";
+			document.body.insertAdjacentElement("afterbegin", menuEdit);
+
+		let cancelNote = document.createElement("p");
+				cancelNote.setAttribute("class", "cancelNote fas fa-long-arrow-alt-left size");
+				cancelNote.setAttribute("id", "cancelNote--js");
+				cancelNote.title = "Cancelar";
+				menuEdit.insertAdjacentElement("afterbegin",cancelNote);
+				
+			cancelNote.addEventListener("click", (e)=>{
+
+			 	this.showButtonFloat()
+				this.removeBanner(menuEdit);
+				this.removeEfectToParagraph(element);
+
+			}, false);
 
 
+			let visualizerParagraph = document.createElement("p");
+ 					visualizerParagraph.textContent = element.innerHTML; 
+ 					visualizerParagraph.setAttribute("class", "visualizer");
+ 					visualizerParagraph.setAttribute("id", "visualizer--js");
+
+ 					menuEdit.appendChild(visualizerParagraph);
+	}
 
 	pushFavorite(favNotes, element, menu){
-
+		this.showButtonFloat()
 		element.classList.add("efect")
 		favNotes.appendChild(element);
 		this.removeEfectToParagraph(element);
@@ -79,8 +129,9 @@ class Notes{
 	}
 	 
 	addNote(){
+
 		if(!document.getElementById("containerText") && !document.getElementById("menu--js") && !document.getElementById("menuEdit--js")){
-			
+			this.hiddenButtonFloat()
 		let containerText = document.createElement("div");
 			containerText.setAttribute("class", "containerText");
 			containerText.setAttribute("id", "containerText");
@@ -124,13 +175,13 @@ class Notes{
 		
 		buttonCancel.addEventListener("click",(e)=>{
 			this.removeBanner(containerText,textArea);
-			 
+			 this.showButtonFloat()
 		}, false);
 
 		buttonAdd.addEventListener("click", (e) =>{
 			
 			if(textAreaValue.value != ""){
-				
+				this.showButtonFloat()
 				let paragraph = document.createElement("p");
  					paragraph.textContent = textAreaValue.value; 
  					paragraph.setAttribute("class", "paragraph");
@@ -218,6 +269,7 @@ class Notes{
 					let vals = textEdit.value;
 					element.innerHTML = vals;
 					this.removeBanner(menuEdit);
+					this.showButtonFloat()
 				 
 				},false)
 
@@ -229,7 +281,7 @@ class Notes{
 
 				editCancel.addEventListener("click", (e)=>{
 					this.removeBanner(menuEdit);
-					 
+					this.showButtonFloat()
 				}, false);
 				
 	}

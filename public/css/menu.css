@@ -16,6 +16,7 @@ body{
 	z-index: 10000;
 	margin: 0;
 	padding:0;
+	overflow-y: scroll;
 }
 .favorite{
  	font-size: 40px;
@@ -81,4 +82,39 @@ body{
 	}100%{
 		background-color: green;
 	}
+}
+.size{
+	font-size: 50px;
+	position: sticky;
+	top:0;
+	background: black;
+	width: 100%;
+}
+.buttonfloat{
+	transform: scale(0);
+}
+.visualizer{
+	color: white;
+	background: #222;
+}
+.zoom{
+	margin-top: 0;
+	background-color: rgba(0%, 0%, 0%, 97%);
+	overflow-y: scroll;
+	padding-left:.2em;
+	padding-right:.2em;
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-rows: repeat(100%, 100%);
+	grid-template-columns: repeat(100%);
+}
+.visualizer{
+	margin-top: 0;
+	line-height: 25px;
+	font-family: Arial;
+	font-size: 18px;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+	word-break: break-all;
+	background-color: transparent;
 }
