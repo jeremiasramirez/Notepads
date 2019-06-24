@@ -66,6 +66,7 @@ body{
 .spanClose{
 
 }
+
 .all_note_container {
 	display: block;
 }
@@ -98,7 +99,17 @@ body{
 	color: blue;
 	margin-top: 1em
 }
-
+.--feature{
+	position: sticky;
+	top: 0;
+	z-index: 1000000;
+	background-color: orange;
+	display: inline-block;
+	width: 100%;
+	padding-top: .4em;
+	padding-bottom: .4em;
+	color: white;
+}
 .note__favorite{
 	font-family: sans-serif;
 	color: blue;
