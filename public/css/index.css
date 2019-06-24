@@ -117,6 +117,7 @@ body{
 	 word-spacing: 1.4px;
 	 line-height: 22px;
 	 transition: .5s;
+	 transform: scale(.9);
 	 cursor: pointer;
 	 white-space: pre-wrap;
 }
