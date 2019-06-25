@@ -30,6 +30,9 @@ body{
 	background-color: #eee
 
 }
+.favnote{
+	background-color: "orangered";
+}
 .add__note{
 	transition: .2s;
 	width: 100%;
